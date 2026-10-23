@@ -1,0 +1,81 @@
+print(" ***** CURRENCY CONVERTER ***** ")
+
+currencies = {
+    "INR": 1.0,
+    "USD": 85.0,
+    "JPY": 0.57,
+    "EUR": 98.0,
+    "GBP": 115.0,
+    "CNY": 12.0,
+    "CHF": 105.0,
+    "AUD": 56.0,
+    "CAD": 62.0,
+    "HKD": 11.0,
+    "SGD": 65.0
+}
+
+names = {
+    "INR": "Indian Rupee",
+    "USD": "US Dollar",
+    "JPY": "Japanese Yen",
+    "EUR": "Euro",
+    "GBP": "UK Pound",
+    "CNY": "Chinese Yuan",
+    "CHF": "Swiss Franc",
+    "AUD": "Australian Dollar",
+    "CAD": "Canadian Dollar",
+    "HKD": "Hong Kong Dollar",
+    "SGD": "Singapore Dollar"
+}
+
+print("\nAvailable Currencies:")
+
+codes = list(currencies.keys())
+
+for i in range(len(codes)):
+    print(i + 1, ".", names[codes[i]], "(", codes[i], ")")
+
+source_choice = int(input("\nChoose source currency number: "))
+target_choice = int(input("Choose target currency number: "))
+
+if 1 <= source_choice <= len(codes) and 1 <= target_choice <= len(codes):
+
+    source = codes[source_choice - 1]
+    target = codes[target_choice - 1]
+
+    amount = float(input("Enter amount: "))
+
+    inr = amount * currencies[source]
+    result = inr / currencies[target]
+
+    print("\n========== RESULT ==========")
+    print(amount, source, "=", round(result, 2), target)
+    print("============================")
+
+else:
+    print("Invalid currency number!")
+
+# OUTPUT
+ ***** CURRENCY CONVERTER ***** 
+
+Available Currencies:
+1 . Indian Rupee ( INR )
+2 . US Dollar ( USD )
+3 . Japanese Yen ( JPY )
+4 . Euro ( EUR )
+5 . UK Pound ( GBP )
+6 . Chinese Yuan ( CNY )
+7 . Swiss Franc ( CHF )
+8 . Australian Dollar ( AUD )
+9 . Canadian Dollar ( CAD )
+10 . Hong Kong Dollar ( HKD )
+11 . Singapore Dollar ( SGD )
+
+Choose source currency number: 1
+Choose target currency number: 2
+Enter amount: 3500
+
+========== RESULT ==========
+3500.0 INR = 41.18 USD
+============================
+    
